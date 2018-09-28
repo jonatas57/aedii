@@ -1,2 +1,5 @@
 *.out
 *.zip
+*.csv
+*.o
+*.gch
