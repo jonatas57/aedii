@@ -1,0 +1,71 @@
+'.source.c':
+  'initfile':
+    'prefix': 'initf'
+    'body': '#include <stdio.h>\n\nint main() {\n\t${1:}\n\treturn 0;\n}'
+  'stdlib.h':
+    'prefix': 'stdl'
+    'body': '#include <stdlib.h>\n'
+  'struct':
+    'prefix': 'struct'
+    'body': 'struct ${1:/*name*/} {\n\t${2:/*parameters*/}\n};'
+  'case':
+    'prefix': 'case'
+    'body': 'case ${1:/* value */}:\n$2\nbreak;'
+  'check':
+    'prefix': 'cck'
+    'body': 'void check() {\n\tprintf("check\\\\n");\n}'
+  'malloc':
+    'prefix': 'malloc'
+    'body': 'malloc(${1:n * }sizeof(${2:type}));'
+  'include':
+    'prefix': 'inc'
+    'body': '#include <${1:}.h>'
+  '?:':
+    'prefix': 'fff'
+    'body': '${1:} ? ${2:} : ${3:}'
+
+'.source.cpp':
+  'initfile':
+    'prefix': 'initf'
+    'body': '#include <iostream>\n\nusing namespace std;\n\nint main() {\n\t${1:}\n\treturn 0;\n}'
+  'struct':
+    'prefix': 'struct'
+    'body': 'struct ${1:/*name*/} {\n\t${2:/*parameters*/}\n};'
+  'case':
+    'prefix': 'case'
+    'body': 'case ${1:/* value */}:\n$2\nbreak;'
+  'check':
+    'prefix': 'cck'
+    'body': 'void check() {\n\tcout << "check" << endl;\n}'
+  'include':
+    'prefix': 'inc'
+    'body': '#include <${1:}>'
+  'malloc':
+    'prefix': 'malloc'
+    'body': '(${2:type}*)malloc(${1:n * }sizeof(${2:type}));'
+  'calloc':
+    'prefix': 'calloc'
+    'body': '(${2:type}*)calloc(${1:n}, sizeof(${2:type}));'
+  'codido temporario':
+    'prefix': 'zzz'
+    'body': '/*@*/$1/*@*/'
+  'regexct':
+    'prefix': 'zzzz'
+    'body': '\/\*@\*\/(\s|[!-?]|[A-z])*\/\*@\*\/'
+
+'.source.java':
+  'initfile':
+    'prefix': 'init'
+    'body': 'public class ${1:Name} {\n\tpublic static void main(String[] args) {\n\t\t${2:}\n\t}\n}'
+  'print':
+    'prefix': 'print'
+    'body': 'System.out.print$1($2);'
+  'next':
+    'prefix': 'nn'
+    'body': '$1.next$2();'
+  'setter':
+    'prefix': 'set'
+    'body': 'public void set$1($2) {\n\tthis.$3 = $2\n}'
+  'getter':
+    'prefix': 'get'
+    'body': 'public ${1:type} get$2() {\n\treturn $3;\n}'
